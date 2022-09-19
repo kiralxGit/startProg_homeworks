@@ -18,18 +18,21 @@
 // 78 -> третьей цифры нет
 // 32679 -> 6
 
-Console.WriteLine("Введите число:");
-int n = Convert.ToInt32(Console.ReadLine()!);
-if((n / 100) != 0) Console.WriteLine((n / 100) % 10);
-else Console.WriteLine("Третьей цифры нет или что-то пошло не так");
-
+// Console.WriteLine("Введите число:");
+// int n = Convert.ToInt32(Console.ReadLine()!);
+// if((n / 100) != 0) Console.WriteLine((n / 100) % 10);
+// else Console.WriteLine("Третьей цифры нет или что-то пошло не так");
 
 
 /* -------------------------------------------------------- */
 // Задача 15: Напишите программу, которая
 // принимает на вход цифру, обозначающую день недели,
 // и проверяет, является ли этот день выходным.
-
 // 6 -> да
 // 7 -> да
 // 1 -> нет
+
+Console.WriteLine("Введите цифру дня недели (1-7, пнд первый):");
+int day = Convert.ToInt32(Console.ReadLine()!);
+if((day == 6) || (day == 7)) Console.WriteLine("Да, выходной!");
+else Console.WriteLine("Нет");

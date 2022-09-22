@@ -47,3 +47,20 @@ Console.WriteLine("Введите цифру дня недели (1-7, пнд п
 int day = Convert.ToInt32(Console.ReadLine()!);
 if((day == 6) || (day == 7)) Console.WriteLine("Да, выходной!");
 else Console.WriteLine("Нет");
+
+/* ------------------------------ */
+
+int day = 0;
+while ((day < 1) || (day > 7))
+{
+    try
+    {
+        Console.WriteLine("Введите цифру дня недели (1-7, пнд первый):");
+        day = Convert.ToInt32(Console.ReadLine()!);
+    }catch
+    {
+        Console.WriteLine("Вы ввели не корректное значение!");
+    }
+}    
+if((day == 6) || (day == 7)) Console.WriteLine("Да, выходной!");
+else Console.WriteLine("Нет");

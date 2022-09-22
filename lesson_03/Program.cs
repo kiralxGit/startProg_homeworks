@@ -5,6 +5,14 @@
 // 12821 -> да
 // 23432 -> да
 
+Console.WriteLine("Введите 5-ти значное число: ");
+int number = Convert.ToInt32(Console.ReadLine()!);
+if ((number / 10000) == (number % 10)){
+    if (((number / 1000) % 10) == ((number / 10 )% 10)) Console.WriteLine("да");
+}else{
+    Console.WriteLine("нет");
+}
+
 /*-------------------------------------------------------------------------*/
 // Задача 21
 // Напишите программу, которая принимает на вход координаты двух точек
@@ -35,9 +43,10 @@ Console.WriteLine($"{temp:f2}");
 // и выдаёт таблицу кубов чисел от 1 до N.
 // 3 -> 1, 8, 27
 // 5 -> 1, 8, 27, 64, 125
-// Console.WriteLine("Введите N: ");
-// int n = Convert.ToInt32(Console.ReadLine()!);
-// for(int i = 1; i <= n; i++) {
-//     Console.Write(Math.Pow(i, 3));
-//     if (i < n) Console.Write(", ");
-// }
+
+Console.WriteLine("Введите N: ");
+int n = Convert.ToInt32(Console.ReadLine()!);
+for(int i = 1; i <= n; i++) {
+    Console.Write(Math.Pow(i, 3));
+    if (i < n) Console.Write(", ");
+}

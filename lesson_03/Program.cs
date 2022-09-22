@@ -5,6 +5,7 @@
 // 12821 -> да
 // 23432 -> да
 
+/* ---------- через string(массив) и условия, только для 5-ти значных ---------- */
 Console.WriteLine("Введите 5-ти значное число: ");
 int number = Convert.ToInt32(Console.ReadLine()!);
 if ((number / 10000) == (number % 10)){
@@ -13,7 +14,33 @@ if ((number / 10000) == (number % 10)){
     Console.WriteLine("нет");
 }
 
-/*-------------------------------------------------------------------------*/
+/* --------------- через string(массив) и цикл от 2-х значных--------------- */
+Console.Write("Является ли палиндромом число: ");
+string number = Console.ReadLine()!;
+int len = number.Length;
+for(int i = 0; i < (len / 2);i++){
+    if (number[i] != number[len - i - 1]){
+        Console.Write("нет");
+        break;
+    } else if (i + 1 == (len / 2)){
+        Console.Write("да");
+    }
+}
+
+/* --------------- через string(массив) и рекурсию от 1 значных --------------- */
+Console.Write("Является ли палиндромом число: ");
+string number = Console.ReadLine()!;
+
+static Boolean IsPalindrom (string str, int i = 0){
+    int len = str.Length - 1 - i;
+    if ((str[i] == str[len]) && ((len - i) > 2)) return IsPalindrom(str, i + 1);
+    else if (str[i] == str[len]) return true;
+    else return false;
+}
+Console.WriteLine(IsPalindrom(number) ? "Да" : "Нет");
+
+
+/*-------------------------------------------------------------------------------*/
 // Задача 21
 // Напишите программу, которая принимает на вход координаты двух точек
 // и находит расстояние между ними в 3D пространстве.
@@ -37,7 +64,7 @@ for (int i = 0; i < pointB.Length; i++){
 double temp = Math.Sqrt(Math.Pow((xyzB[0] - xyzA[0]), 2) + Math.Pow((xyzB[1] - xyzA[1]), 2) + Math.Pow((xyzB[2] - xyzA[2]), 2));
 Console.WriteLine($"{temp:f2}");
 
-/*-------------------------------------------------------------------------*/
+/*---------------------------------------------------------------------------------*/
 // Задача 23
 // Напишите программу, которая принимает на вход число (N)
 // и выдаёт таблицу кубов чисел от 1 до N.

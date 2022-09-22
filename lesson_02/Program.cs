@@ -5,9 +5,9 @@
 // 782 -> 8
 // 918 -> 1
 
-Console.WriteLine("Введите трёхзначное число:");
-int n = Convert.ToInt32(Console.ReadLine()!);
-Console.WriteLine((n / 10) % 10);
+// Console.WriteLine("Введите трёхзначное число:");
+// int n = Convert.ToInt32(Console.ReadLine()!);
+// Console.WriteLine((n / 10) % 10);
 
 
 /* -------------------------------------------------------- */
@@ -29,10 +29,10 @@ else
 }
 
 // ###### Это для третьей цифры справа
-Console.WriteLine("Введите число:");
-int n = Convert.ToInt32(Console.ReadLine()!);
-if((n / 100) != 0) Console.WriteLine((n / 100) % 10);
-else Console.WriteLine("Третьей цифры нет или что-то пошло не так");
+// Console.WriteLine("Введите число:");
+// int n = Convert.ToInt32(Console.ReadLine()!);
+// if((n / 100) != 0) Console.WriteLine((n / 100) % 10);
+// else Console.WriteLine("Третьей цифры нет или что-то пошло не так");
 
 
 /* -------------------------------------------------------- */
@@ -43,10 +43,10 @@ else Console.WriteLine("Третьей цифры нет или что-то по
 // 7 -> да
 // 1 -> нет
 
-Console.WriteLine("Введите цифру дня недели (1-7, пнд первый):");
-int day = Convert.ToInt32(Console.ReadLine()!);
-if((day == 6) || (day == 7)) Console.WriteLine("Да, выходной!");
-else Console.WriteLine("Нет");
+// Console.WriteLine("Введите цифру дня недели (1-7, пнд первый):");
+// int day = Convert.ToInt32(Console.ReadLine()!);
+// if((day == 6) || (day == 7)) Console.WriteLine("Да, выходной!");
+// else Console.WriteLine("Нет");
 
 /* ------------------------------ */
 

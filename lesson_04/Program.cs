@@ -2,23 +2,24 @@
 // 3, 5 -> 243 (3⁵)
 // 2, 4 -> 16
 
-Console.Write("Введите число А: ");
-int a = Convert.ToInt32(Console.ReadLine()!);
-Console.Write("Введите число B: ");
-int b = Convert.ToInt32(Console.ReadLine()!);
+// Console.Write("Введите число А: ");
+// int a = Convert.ToInt32(Console.ReadLine()!);
+// Console.Write("Введите число B: ");
+// int b = Convert.ToInt32(Console.ReadLine()!);
 
-PrintPow(a, b);
+// PrintPow(a, b);
 
-void PrintPow(int a, int b){
-    Console.WriteLine(GetPow(a, b));
-}
-int GetPow(int a, int b){
-    int sum = 1;
-    for(; b > 0; b--){
-        sum *= a;
-    }
-    return sum;
-}
+// void PrintPow(int a, int b){
+//     Console.WriteLine(GetPow(a, b));
+// }
+
+// int GetPow(int a, int b){
+//     int sum = 1;
+//     for(; b > 0; b--){
+//         sum *= a;
+//     }
+//     return sum;
+// }
 
 
 //Задача 27: Напишите программу, которая принимает на вход число и выдаёт сумму цифр в числе.
@@ -26,12 +27,19 @@ int GetPow(int a, int b){
 // 82 -> 10
 // 9012 -> 12
 
+Console.Write("Введите число: ");
+int num = Convert.ToInt32(Console.ReadLine()!);
 
+Console.Write("Сумма чисел: " + PrintSum(num));
 
-
-
-
-
+int PrintSum(int num){
+    int sum = 0;
+    while(num > 0){
+        sum += num % 10;
+        num = num / 10;
+    }
+    return sum;
+}
 
 
 //Задача 29: Напишите программу, которая задаёт массив из 8 элементов и выводит их на экран.

@@ -27,21 +27,46 @@
 // 82 -> 10
 // 9012 -> 12
 
-Console.Write("Введите число: ");
-int num = Convert.ToInt32(Console.ReadLine()!);
+// Console.Write("Введите число: ");
+// int num = Convert.ToInt32(Console.ReadLine()!);
 
-Console.Write("Сумма чисел: " + PrintSum(num));
+// Console.Write("Сумма чисел: " + PrintSum(num));
 
-int PrintSum(int num){
-    int sum = 0;
-    while(num > 0){
-        sum += num % 10;
-        num = num / 10;
-    }
-    return sum;
-}
+// int PrintSum(int num){
+//     int sum = 0;
+//     while(num > 0){
+//         sum += num % 10;
+//         num /= 10;
+//     }
+//     return sum;
+// }
 
 
 //Задача 29: Напишите программу, которая задаёт массив из 8 элементов и выводит их на экран.
 // 1, 2, 5, 7, 19 -> [1, 2, 5, 7, 19]
 // 6, 1, 33 -> [6, 1, 33]
+
+/* Вариант 1: создаём массив из 8 эл-ов и выводим на первой строке первые 5, а на второй оставшиеся 3 эл-та */
+PrintRndArr(8);
+void PrintRndArr(int quantity){
+    int[] array = new int[quantity]; // создаём массив заданной длины
+
+    for(int i = 0; i < array.Length; i++){ // наполняем
+        array[i] = new Random().Next(1, 34);
+    }
+// форматирование и вывод
+    Console.Write("[");
+    for(int i = 0; i < 5; i++) {
+        Console.Write(array[i]);
+        if(i + 1 < 5)Console.Write(",");
+    }
+    Console.Write("]");
+    Console.WriteLine();
+
+    Console.Write("[");
+    for(int i = 5; i < quantity; i++) {
+        Console.Write(array[i]);
+        if(i + 1 < quantity)Console.Write(",");
+    }
+    Console.Write("]");
+}

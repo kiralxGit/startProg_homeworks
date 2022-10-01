@@ -29,6 +29,18 @@ int[] GetArray(int size, int minValue, int maxValue){
 // [3, 7, 23, 12] -> 19
 // [-4, -6, 89, 6] -> 0
 
+int[] numbers36 = GetArray(10, -100, 100);
+Console.WriteLine('[' + String.Join(",", numbers36) + ']');
+Console.WriteLine("Сумма: " + GetOddIndexTotal(numbers36));
+
+int GetOddIndexTotal(int[] array){
+    int total = 0;
+    for (int i = 1; i < array.Length; i += 2){
+        total += array[i];
+    }
+    return total;
+}
+
 
 
 

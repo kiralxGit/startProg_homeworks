@@ -3,15 +3,20 @@
 // 0, 7, 8, -2, -2 -> 2
 // 1, -7, 567, 89, 223-> 3
 
+
+
 Console.WriteLine("Введите числа через запятую: ");
 string numbers = Console.ReadLine()!;
 string[] arr = numbers.Split(',');
 int[] arrNums = new int [arr.Length];
+
+
 int count = 0;
 for (int i = 0; i < arr.Length; i++){
     arrNums[i] = Convert.ToInt32(arr[i]);
     if (arrNums[i] > 0) count++;
 }
+
 Console.WriteLine(count);
 
 
@@ -21,19 +26,17 @@ Console.WriteLine(count);
 // b1 = 2, k1 = 5, b2 = 4, k2 = 9 -> (-0,5; -0,5)
 
 
-double[,] resArr= new [2, 2];
 
 Console.Write("Введите число b1: ");
-resArr[0, 0] = Convert.ToInt32(Console.ReadLine()!);
-
+double b1 = Convert.ToDouble(Console.ReadLine()!);
 Console.Write("Введите число k1: ");
-resArr[0, 1] = Convert.ToInt32(Console.ReadLine()!);
-
+double k1 = Convert.ToDouble(Console.ReadLine()!);
 Console.Write("Введите число b2: ");
-resArr[1, 0] = Convert.ToInt32(Console.ReadLine()!);
-
+double b2 = Convert.ToDouble(Console.ReadLine()!);
 Console.Write("Введите число k2: ");
-resArr[1, 1] = Convert.ToInt32(Console.ReadLine()!);
+double k2 = Convert.ToDouble(Console.ReadLine()!);
 
+double x = (b2 - b1) / (k1 - k2);
+double y = y = k1 * x + b1;
 
-Console.WriteLine();
+Console.WriteLine($"({x}; {y})");

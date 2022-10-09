@@ -4,7 +4,7 @@
 // 1 -3 8 -9
 // 8 7 -7 9
 
-PrintArray(GetArray(minValue: -99, maxValue: 99));
+//PrintArray(GetArray(minValue: -99, maxValue: 99));
 
 // Задача 50. Напишите программу, которая на вход принимает позиции элемента в двумерном массиве,
 // и возвращает значение этого элемента или же указание, что такого элемента нет.
@@ -16,8 +16,25 @@ PrintArray(GetArray(minValue: -99, maxValue: 99));
 // i = 4, j = 2 -> такого числа в массиве нет
 // i = 1, j = 2 -> 2
 
+Console.Write("Кол-во строк: ");
+int rows = int.Parse(Console.ReadLine()!);
+Console.Write("Кол-во столбцов: ");
+int columns = int.Parse(Console.ReadLine()!);
 
+Console.Write("Какой индекс строки ищем: ");
+int rowsSearch = int.Parse(Console.ReadLine()!);
+Console.Write("Какой индекс столбца ищем: ");
+int columnsSearch = int.Parse(Console.ReadLine()!);
 
+int [,] arr = GetArray(m: rows, n: columns);
+PrintArray(arr);
+Console.WriteLine(SearchIndex(rowsSearch, columnsSearch, arr));
+
+string SearchIndex(int rows, int col, int[,] array)
+{
+    if((array.GetLength(0) > rows) && (array.GetLength(1) > col)) return Convert.ToString(array[rows, col]);
+    else return "такого числа в массиве нет";
+}
 // Задача 52. Задайте двумерный массив из целых чисел. Найдите среднее арифметическое элементов в каждом столбце.
 // Например, задан массив:
 // 1 4 7 2

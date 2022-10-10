@@ -1,30 +1,30 @@
 ﻿// Отсортировать нечетные столбцы массива по возрастанию.
 // Вывести массив изначальный и массив с отсортированными нечетными столбцами
-Console.WriteLine("**Задача X:**");
-int [,] arrX = GetArray(m: 5, n: 5);
-PrintArray(arrX);
-Console.WriteLine();
-PrintArray(SortedOddRows(arrX));
+// Console.WriteLine("**Задача X:**");
+// int [,] arrX = GetArray(m: 5, n: 5);
+// PrintArray(arrX);
+// Console.WriteLine();
+// PrintArray(SortedOddRows(arrX));
 
-int[,] SortedOddRows(int[,] array)
-{
-    for (int i = 1; i < array.GetLength(0); i += 2)
-    {
-        for (int k = 0; k < array.GetLength(1); k++)
-        {
-            for (int j = k + 1, temp = 0; j < array.GetLength(1); j++)
-            {
-                if (array[i,k] > array[i,j])
-                {
-                    temp = array[i,k];
-                    array[i,k] = array[i,j];
-                    array[i,j] = temp;
-                }; 
-            }
-        }
-    }
-    return array;
-}
+// int[,] SortedOddRows(int[,] array)
+// {
+//     for (int i = 1; i < array.GetLength(0); i += 2)
+//     {
+//         for (int k = 0; k < array.GetLength(1); k++)
+//         {
+//             for (int j = k + 1, temp = 0; j < array.GetLength(1); j++)
+//             {
+//                 if (array[i,k] > array[i,j])
+//                 {
+//                     temp = array[i,k];
+//                     array[i,k] = array[i,j];
+//                     array[i,j] = temp;
+//                 }; 
+//             }
+//         }
+//     }
+//     return array;
+// }
 
 
 // Задача 54: Задайте двумерный массив. Напишите программу,
@@ -37,6 +37,33 @@ int[,] SortedOddRows(int[,] array)
 // 7 4 2 1
 // 9 5 3 2
 // 8 4 4 2
+Console.WriteLine("**Задача 54:**");
+int [,] arr54 = GetArray();
+PrintArray(arr54);
+Console.WriteLine();
+PrintArray(SortedRows(arr54));
+
+int[,] SortedRows(int[,] array)
+{
+    for (int i = 0; i < array.GetLength(0); i++)
+    {
+        for (int k = 0; k < array.GetLength(1); k++)
+        {
+            for (int j = k + 1, temp = 0; j < array.GetLength(1); j++)
+            {
+                if (array[i,k] < array[i,j])
+                {
+                    temp = array[i,k];
+                    array[i,k] = array[i,j];
+                    array[i,j] = temp;
+                }; 
+            }
+        }
+    }
+    return array;
+}
+
+
 
 // Задача 56: Задайте прямоугольный двумерный массив. Напишите программу,
 // которая будет находить строку с наименьшей суммой элементов.

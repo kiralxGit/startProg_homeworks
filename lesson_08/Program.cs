@@ -156,61 +156,61 @@
     // 34(1,0,0) 41(1,1,0)
     // 27(0,0,1) 90(0,1,1)
     // 26(1,0,1) 55(1,1,1)
-Console.WriteLine("Задача 60:");
-//int[,,] arr60 = new int[,,]{{{66,27},{25,90}},{{34,26},{41,55}}};
-//PrintArray3d(arr60);
-PrintArray3d(GetArray3dDiffElements());
-int[,,] GetArray3dDiffElements(int m = 2, int n = 2, int o = 2, int minValue = 10, int maxValue = 99){
-    int[] arrayDiffEl= GetArrayDiffElements(m*n*o, minValue, maxValue);
-    int count = 0;
-    int[,,] res = new int[m, n, o];
-    for (int i = 0; i < m; i++)
-    {
-        for (int k = 0; k < n; k++)
-        {
-            for (int l = 0; l < o; l++)
-            {
-                res[i,k,l] = arrayDiffEl[count];
-                count++;
-            }
-        }
-    }
-    return res;
-}
+// Console.WriteLine("Задача 60:");
+// //int[,,] arr60 = new int[,,]{{{66,27},{25,90}},{{34,26},{41,55}}};
+// //PrintArray3d(arr60);
+// PrintArray3d(GetArray3dDiffElements());
+// int[,,] GetArray3dDiffElements(int m = 2, int n = 2, int o = 2, int minValue = 10, int maxValue = 99){
+//     int[] arrayDiffEl= GetArrayDiffElements(m*n*o, minValue, maxValue);
+//     int count = 0;
+//     int[,,] res = new int[m, n, o];
+//     for (int i = 0; i < m; i++)
+//     {
+//         for (int k = 0; k < n; k++)
+//         {
+//             for (int l = 0; l < o; l++)
+//             {
+//                 res[i,k,l] = arrayDiffEl[count];
+//                 count++;
+//             }
+//         }
+//     }
+//     return res;
+// }
 
-int[] GetArrayDiffElements(int length, int minValue, int maxValue){
-    int[] res = new int[length];
-    int r;
-    for (int i = 0; i < length; i++)
-    {  
-        r = new Random().Next(minValue, maxValue + 1);
-        for (int k = 0; k < i;)
-        {
-            if (r == res[k]) {
-                r = new Random().Next(minValue, maxValue + 1);
-                k = 0;
-            }
-            else k++;
-        }
-        res[i] = r;
-    }
-    return res;
-}
+// int[] GetArrayDiffElements(int length, int minValue, int maxValue){
+//     int[] res = new int[length];
+//     int r;
+//     for (int i = 0; i < length; i++)
+//     {  
+//         r = new Random().Next(minValue, maxValue + 1);
+//         for (int k = 0; k < i;)
+//         {
+//             if (r == res[k]) {
+//                 r = new Random().Next(minValue, maxValue + 1);
+//                 k = 0;
+//             }
+//             else k++;
+//         }
+//         res[i] = r;
+//     }
+//     return res;
+// }
 
-void PrintArray3d(int[,,] array)
-{
-    for (int i = 0; i < array.GetLength(0); i++)
-    {
-        for (int k = 0; k < array.GetLength(1); k++)
-        {
-            for (int l = 0; l < array.GetLength(2); l++)
-            {
-                Console.Write($"{array[k,l,i]}({k},{l},{i}) ");
-            }
-        Console.WriteLine();
-        }
-    }
-}
+// void PrintArray3d(int[,,] array)
+// {
+//     for (int i = 0; i < array.GetLength(0); i++)
+//     {
+//         for (int k = 0; k < array.GetLength(1); k++)
+//         {
+//             for (int l = 0; l < array.GetLength(2); l++)
+//             {
+//                 Console.Write($"{array[k,l,i]}({k},{l},{i}) ");
+//             }
+//         Console.WriteLine();
+//         }
+//     }
+// }
 
 
 //----------------------------------------------------------------------------------------------
@@ -220,14 +220,77 @@ void PrintArray3d(int[,,] array)
 // 12 13 14 05
 // 11 16 15 06
 // 10 09 08 07
-// Console.WriteLine("Задача 62:");
+Console.WriteLine("Задача 62:");
+//int[,] arr62 = new int[4,4]{{01,02,03,04},{12,13,14,05},{11,16,15,06},{10,09,08,07}};
+PrintArray2Digitals(GetSpiralArray());
+
+int[,] GetSpiralArray(int size = 4)
+{
+    int[,] res = new int[size,size];
+    int maxElement = size * size;
+    int i = 1,
+        x = -1,
+        y = 0,
+        dx = 1,
+        dy = 0;
+    while (i <= maxElement)
+    {
+        if ((x + dx < size && x + dx >= 0) && (y + dy < size && y + dy >= 0) && (res[(y + dy), (x + dx)] == 0))
+        {
+                x += dx;
+                y += dy;
+                res[y, x] = i;
+        }
+        else
+        {
+            if (dx == 1)
+            {
+                dx = 0;
+                dy = 1;
+                i--;
+            }
+            else if (dy == 1)
+            {
+                dx = -1;
+                dy = 0;
+                i--;
+            }
+            else if (dx == -1)
+            {
+                dx = 0;
+                dy = -1;
+                i--;
+            }
+            else if (dy == -1)
+            {
+                dx = 1;
+                dy = 0;
+                i--;
+            }
+
+        }
+        i++;
+    }
+    return res;
+}
+
+void PrintArray2Digitals(int[,] array)
+{
+    for (int i = 0; i < array.GetLength(0); i++)
+    {
+        for (int j = 0; j < array.GetLength(1); j++)
+        {
+            Console.Write(String.Format("{0:D2}", array[i, j]) + " ");
+        }
+        Console.WriteLine();
+    }
+}
 
 
 
 
+/* --------------------------- Общие методы --------------------------- */
 
-
-/* Общие методы */
 int[,] GetArray(int m = 3, int n = 4, int minValue = 0, int maxValue = 9)
 {
     int[,] res = new int[m, n];
@@ -252,3 +315,4 @@ void PrintArray(int[,] array)
         Console.WriteLine();
     }
 }
+

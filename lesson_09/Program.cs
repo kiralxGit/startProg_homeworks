@@ -2,18 +2,18 @@
 // все натуральные числа в промежутке от N до 1. Выполнить с помощью рекурсии.
 //     N = 5 -> "5, 4, 3, 2, 1"
 //     N = 8 -> "8, 7, 6, 5, 4, 3, 2, 1"
-// Console.WriteLine("Задача 64:");
-// Console.Write("Введите число N: ");
-// int N = int.Parse(Console.ReadLine()!);
+Console.WriteLine("Задача 64:");
+Console.Write("Введите число N: ");
+int N = int.Parse(Console.ReadLine()!);
 
-// Console.WriteLine(FromNto1(N));
-// string FromNto1(int n)
-// {
-//     if (n == 1) return "1";
-//     return n + " " + FromNto1(n - 1);
-// }
+Console.WriteLine(FromNto1(N));
+string FromNto1(int n)
+{
+    if (n == 1) return "1";
+    return n + " " + FromNto1(n - 1);
+}
 
-// Console.WriteLine();
+Console.WriteLine();
 //----------------------------------------------------------------------------------------------
 // Задача 66: Задайте значения M и N. Напишите программу,
 // которая найдёт сумму натуральных элементов в промежутке от M до N.
@@ -39,3 +39,16 @@ Console.WriteLine();
 //     m = 2, n = 3 -> A(m,n) = 9
 //     m = 3, n = 2 -> A(m,n) = 29
 Console.WriteLine("Задача 68:");
+Console.Write("Введите число mA: ");
+int mA = int.Parse(Console.ReadLine()!);
+Console.Write("Введите число nA: ");
+int nA = int.Parse(Console.ReadLine()!);
+
+Console.WriteLine(Ackermann(mA, nA));
+
+int Ackermann(int m, int n)
+{
+    if(m == 0 && n > 0) return n + 1;
+    if(m > 0 && n == 0) return Ackermann(m - 1, 1);
+    return Ackermann(m - 1, Ackermann(m, n - 1));
+}
